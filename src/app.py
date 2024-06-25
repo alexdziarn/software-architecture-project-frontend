@@ -22,6 +22,7 @@ def echo_input():
         input_text = request.form.get("user_input", "") #shoudl be a ticker
         print("getting analysis for: " + input_text)
         host = "api" if os.environ.get('RUNNING_IN_DOCKER', "false")=="true" else "localhost"
+        print("api request", "http://" + host + ":3000/getStockAnalysis/" + input_text)
         res = requests.get("http://" + host + ":3000/getStockAnalysis/" + input_text).json()
         print(res)
         return res['ticker'] + " is a " + res['analysis']
