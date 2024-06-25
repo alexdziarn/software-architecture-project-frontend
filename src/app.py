@@ -1,14 +1,11 @@
 #!/usr/bin/env python3
 
 from flask import Flask, request
-from flask_cors import CORS, cross_origin
 import requests
 import os
 # print(os.environ)
 
 app = Flask(__name__)
-cors = CORS(app)
-app.config['CORS_HEADERS'] = 'Content-Type'
 
 @app.route("/")
 def main():
@@ -20,7 +17,6 @@ def main():
      '''
 
 @app.route("/echo_user_input", methods=["POST"])
-@cross_origin()
 def echo_input():
     try:
         input_text = request.form.get("user_input", "") #shoudl be a ticker
