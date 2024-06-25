@@ -28,7 +28,7 @@ def echo_input():
         return res['ticker'] + " is a " + res['analysis']
     except Exception as e:
         print(e)
-        return e
+        return "A problem occured"
 
 @app.route("/health")
 def healthcheck():
