@@ -26,9 +26,9 @@ def echo_input():
         res = requests.get("http://" + host + ":3000/getStockAnalysis/" + input_text).json()
         print(res)
         return res['ticker'] + " is a " + res['analysis']
-    except:
-        print('An exception occurred')
-        return "A problem occured"
+    except Exception as e:
+        print(e)
+        return e
 
 @app.route("/health")
 def healthcheck():
